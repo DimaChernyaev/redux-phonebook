@@ -8,7 +8,7 @@ import {
 } from './Form.styled';
 import { Formik, ErrorMessage } from 'formik';
 import * as yup from 'yup';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { addTask } from 'components/redux/actions';
 
 const validationSchema = yup.object().shape({
@@ -31,7 +31,6 @@ const validationSchema = yup.object().shape({
 });
 
 const Form = () => {
-  // const contacts = useSelector(state => state.contacts);
   const dispatch = useDispatch();
 
   const initialValues = {
@@ -40,7 +39,6 @@ const Form = () => {
   };
 
   function submitForm(values, { resetForm }) {
-    console.log(values);
     dispatch(addTask(values));
     resetForm();
   }
